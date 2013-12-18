@@ -1,0 +1,19 @@
+#!/usr/bin/env ruby
+
+gem 'trollop', '~> 1.16.2'
+require "trollop"
+require 'dnn_generator/version'
+
+config = Trollop.options do
+  version "dnn_generator #{DnnGenerator::VERSION}"
+  banner <<-EOS
+Usage:
+       dnn_generator [options] <ProjectName>
+where [options] are:
+  EOS
+end
+
+Trollop.die "dnn_generator requires exactly one filename argument" unless ARGV.size == 1
+
+arg = ARGV[0]
+puts arg
